@@ -6,7 +6,9 @@ Config.TextUIPosition = 'right-center' --'right-center' or 'left-center' or 'top
 
 Config.PedPosition = {x = 239.85, y = -2017.60, z = 18.32, rot = 141.73} -- position where the ped is
 Config.PedModel = "csb_g" -- choose one of these https://docs.fivem.net/docs/game-references/ped-models/
+Config.Animation = {anim = "anim@heists@heist_corona@single_team", dict = "single_team_loop_boss"}
 Config.SpawnDistance = 25 -- in which distance should the ped spwan?
+Config.PlayerCoords = {x = 239.3985, y = -2018.3916, z = 17.3199, rot = 322.5050} --postion where the player gets teleported, so the animations look better
 
 Config.UseProgbar = true -- needs to be activated for the animations / if it is on false there will be no animation at all
 
