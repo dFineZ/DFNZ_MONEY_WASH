@@ -1,0 +1,11 @@
+{
+    "notify_title": "Moneywash",
+    "target_player": "wash money",
+    "amount": "How much do you wanna wash?",
+    "wash_success": "Your black money gets washed",
+    "no_black": "You need more black money",
+    "no_input": "You do not enter soemthing",
+    "give_cash": "give money...",
+    "discuss": "discuss...",
+    "wash_fail": "Something went wrong"
+}

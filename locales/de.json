@@ -1,0 +1,11 @@
+{
+    "notify_title": "Gledwäsche",
+    "target_player": "Geld waschen",
+    "amount": "Wie viel willst du waschen?",
+    "wash_success": "Dein Geld wurde gewaschen",
+    "no_black": "Du willst mehr Schwarzgeld waschen als du hast",
+    "no_input": "Du hast nichts eingegeben",
+    "give_cash": "Geld geben...",
+    "discuss": "Disktuieren...",
+    "wash_fail": "Etwas ist schief gegangen"
+}
