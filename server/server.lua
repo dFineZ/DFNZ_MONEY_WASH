@@ -1,3 +1,5 @@
+lib.locale()
+
 RegisterServerEvent('DFNZ_MONEY_WASH:wash_money')
 AddEventHandler('DFNZ_MONEY_WASH:wash_money', function(amount)
 
@@ -5,19 +7,24 @@ AddEventHandler('DFNZ_MONEY_WASH:wash_money', function(amount)
 
     if xPlayer.getAccount('black_money').money >= amount then
         xPlayer.removeAccountMoney('black_money', amount)
-        xPlayer.addAccountMoney('money', math.floor(amount * Config.WashTax))
-        TriggerClientEvent('ox_lib:notify', source, {
-            title = Config.Text["money_wash"], 
-            description = Config.Text["wash_success"], 
-            type = 'success',
-            position = Config.NotifyPosition,
-            duration = Config.NotifyDuration
-        })
-        sendToDiscord(color, 'Money Wash','**NAME:** '..xPlayer.name..'\n **ID:** '..xPlayer.source..'\n **IDENTIFIER:** '..xPlayer.getIdentifier()..'\n **AMOUNT:** '..amount, footer)
+        if Config.UseWashTax then
+            xPlayer.addAccountMoney('money', math.floor(amount * Config.WashTax))
+            TriggerClientEvent('ox_lib:notify', source, {
+                title = locale("notify_title"), 
+                description = locale("wash_success"), 
+                type = 'success',
+                position = Config.NotifyPosition,
+                duration = Config.NotifyDuration
+            })
+            sendToDiscord(color, 'Money Wash','**NAME:** '..xPlayer.name..'\n **ID:** '..xPlayer.source..'\n **IDENTIFIER:** '..xPlayer.getIdentifier()..'\n **AMOUNT:** '..amount * Config.WashTax, footer)
+        else
+            xPlayer.addAccountMoney('money', amount)
+            sendToDiscord(color, 'Money Wash','**NAME:** '..xPlayer.name..'\n **ID:** '..xPlayer.source..'\n **IDENTIFIER:** '..xPlayer.getIdentifier()..'\n **AMOUNT:** '..amount, footer)
+        end
     else
         TriggerClientEvent('ox_lib:notify', source, {
-            title = Config.Text["money_wash"], 
-            description = Config.Text["wash_failure"], 
+            title = locale("notify_title"), 
+            description = locale("wash_fail"), 
             type = 'error',
             position = Config.NotifyPosition,
             duration = Config.NotifyDuration
